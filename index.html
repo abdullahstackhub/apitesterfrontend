@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Testing Platform</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="body-container">
+    <header class="header-main">
+        <div class="logo-container">
+            <h1 class="logo-text">API Tester</h1>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="endpoint-section">
+            <h2 class="section-title">API Endpoint Configuration</h2>
+            <div class="url-container">
+                <div class="method-selector">
+                    <select id="method" class="method-select">
+                        <option value="GET">GET</option>
+                        <option value="POST">POST</option>
+                        <option value="PUT">PUT</option>
+                        <option value="DELETE">DELETE</option>
+                        <option value="PATCH">PATCH</option>
+                    </select>
+                </div>
+                <div class="url-input-container">
+                    <input type="text" id="endpoint-url" class="url-input" placeholder="Enter API URL">
+                </div>
+                <button id="send-request" class="btn-send">Send Request</button>
+            </div>
+        </section>
+
+        <section class="parameters-section">
+            <div class="tabs-container">
+                <button class="tab-btn active" data-tab="params">Parameters</button>
+                <button class="tab-btn" data-tab="headers">Headers</button>
+                <button class="tab-btn" data-tab="body">Body</button>
+            </div>
+
+            <div class="tab-content active" id="params-tab">
+                <div class="param-controls">
+                    <button id="add-param" class="btn-add">Add Parameter</button>
+                </div>
+                <div class="params-list">
+                    <div class="param-row">
+                        <input type="text" class="param-key" placeholder="Key">
+                        <input type="text" class="param-value" placeholder="Value">
+                        <button class="btn-remove">×</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="headers-tab">
+                <div class="header-controls">
+                    <button id="add-header" class="btn-add">Add Header</button>
+                </div>
+                <div class="headers-list">
+                    <div class="header-row">
+                        <input type="text" class="header-key" placeholder="Key">
+                        <input type="text" class="header-value" placeholder="Value">
+                        <button class="btn-remove">×</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="body-tab">
+                <div class="body-format-selector">
+                    <select id="body-format" class="format-select">
+                        <option value="json">JSON</option>
+                        <option value="form">Form Data</option>
+                        <option value="raw">Raw</option>
+                    </select>
+                </div>
+                <div class="body-editor-container">
+                    <textarea id="body-content" class="body-editor" placeholder="Enter request body"></textarea>
+                </div>
+            </div>
+        </section>
+
+        <section class="response-section">
+            <div class="response-header">
+                <h2 class="section-title">Response</h2>
+                <div class="response-meta">
+                    <div class="status-container">Status: <span id="response-status" class="status-code">-</span></div>
+                    <div class="time-container" id="time-container">Time: <span id="response-time" class="time-value">-</span></div>
+                    <div class="size-container" id="size-container">Size: <span id="response-size" class="size-value">-</span></div>
+                </div>
+            </div>
+            <div class="response-tabs">
+                <button class="response-tab-btn active" data-tab="body">Response</button>
+                <button class="response-tab-btn" data-tab="headers">Headers</button>
+            </div>
+            <div class="response-content">
+                <div class="response-tab-content active" id="response-body-tab">
+                    <div class="response-format-selector">
+                        <button class="format-btn active" data-format="pretty">Pretty</button>
+                        <button class="format-btn" data-format="raw">Raw</button>
+                    </div>
+                    <div class="response-body-container">
+                        <pre id="response-body" class="response-body">// Response will appear here</pre>
+                    </div>
+                </div>
+                <div class="response-tab-content" id="response-headers-tab">
+                    <div class="response-headers-list" id="response-headers">
+                        <!-- Headers will be populated here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-main">
+        <div class="footer-content">
+            <p class="copyright">API Tester Tool <span style="font-size: 11px;">Made By Abdullah with ♥</span> </p>
+           
+        </div>
+    </footer>
+    <script src="axios/axios.min.js"></script>
+    <script src="js/main.js"></script>
+     
+</body>
+</html>
