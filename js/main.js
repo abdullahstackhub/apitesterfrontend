@@ -142,7 +142,7 @@ async function sendApiRequest() {
 
     try {
         // Send request to Flask backend
-        const response = await axios.post(`http://localhost:8000/${method.toLowerCase()}`, data);
+        const response = await axios.post(`https://apitestingtool.pythonanywhere.com/${method.toLowerCase()}`, data);
 
         // Display response
         const responseBodyElement = document.getElementById('response-body');
